@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simonkye_newsapi.databinding.FragmentNewsListBinding
 import kotlinx.coroutines.launch
@@ -22,7 +23,7 @@ class NewsListFragment : Fragment() {
             "Cannot access binding because it is null. Is the view visible?"
         }
 
-    private val newListViewModel: NewsListViewModel by viewModels()
+    private val newListViewModel: NewsListViewModel by navGraphViewModels(R.id.nav_graph)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,9 +57,6 @@ class NewsListFragment : Fragment() {
                             4 -> newListViewModel.loadNews("science")
                             5 -> newListViewModel.loadNews("sports")
                             6 -> newListViewModel.loadNews("technology")
-
-
-
                         }
                     }
                 }
@@ -89,7 +87,10 @@ class NewsListFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt("selectedCategoryId", binding.categories.checkedRadioButtonId)
+        if (_binding != null) {
+            outState.putInt("selectedCategoryId", binding.categories.checkedRadioButtonId)
+        }
+
     }
 
     override fun onDestroyView() {

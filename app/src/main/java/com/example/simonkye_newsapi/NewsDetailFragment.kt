@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.navGraphViewModels
 import com.example.simonkye_newsapi.databinding.FragmentNewsDetailBinding
 
 private const val TAG = "NewsDetailFragment"
@@ -21,7 +22,7 @@ class NewsDetailFragment : Fragment() {
 
     private lateinit var news: Article
     private val args: NewsDetailFragmentArgs by navArgs()
-    private val viewModel: NewsListViewModel by viewModels()
+    private val viewModel: NewsListViewModel by navGraphViewModels(R.id.nav_graph)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
