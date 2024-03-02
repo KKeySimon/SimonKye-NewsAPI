@@ -8,7 +8,7 @@ interface ApiInterface {
     @GET("top-headlines")
     fun getNews(
         @Query("apiKey") apiKey: String,
-        @Query("from") from: String,
+        @Query("category") from: String,
         @Query("country") country: String
     ): Call<NewsType>
 }

@@ -1,5 +1,7 @@
 package com.example.simonkye_newsapi
 
+import java.util.UUID
+
 data class Article(
     val author: String,
     val content: String,

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SimonKye-NewsAPI</string>
+    <string name="category1">business</string>
+    <string name="category2">entertainment</string>
+    <string name="category3">general</string>
+    <string name="category4">health</string>
+    <string name="category5">science</string>
+    <string name="category6">sports</string>
+    <string name="category7">technology</string>
+
 </resources>
